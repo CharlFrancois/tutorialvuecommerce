@@ -1,15 +1,17 @@
 <template>
   <!-- when using a component in a template Vue.js expects the DOM element to be
   lowercased and dasherized. e.g. ProductList -> product-list -->
-  <div class="toto">TOTO</div>
+  <manage-products/>
   <!-- use the <product-list> component here! -->
 </template>
 
 <script>
-  // import product list component
+  import ManageProducts from "@/components/ManageProducts"
+
   export default {
+    name: 'App',
     components: {
-      // add product list as a component
+      ManageProducts
     }
   }
 </script>
