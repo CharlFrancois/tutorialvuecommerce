@@ -1,29 +1,15 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <!-- when using a component in a template Vue.js expects the DOM element to be
+  lowercased and dasherized. e.g. ProductList -> product-list -->
+  <div class="toto">TOTO</div>
+  <!-- use the <product-list> component here! -->
 </template>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
+<script>
+  // import product list component
+  export default {
+    components: {
+      // add product list as a component
     }
   }
-}
-</style>
+</script>
