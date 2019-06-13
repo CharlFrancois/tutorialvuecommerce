@@ -3,7 +3,7 @@
 </template>
 
 <script>
-  import ProductList from './ProductList'
+  import ProductList from '@/components/ManageProducts/ProductList'
 
   export default {
     name: 'ManageProducts',
