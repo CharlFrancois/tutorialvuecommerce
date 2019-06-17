@@ -4,8 +4,9 @@
       :product="productInForm"
       v-on:submit="onFormSave"></save-product-form>
     <product-list
-      :products="products">
-    </product-list>
+      :products="products"
+      v-on:edit="onEditClicked"
+    ></product-list>
   </section>
 </template>
 
@@ -55,12 +56,22 @@
     data: initialData,
     methods:{
       onFormSave (product) {
-        product.id = uuid.v4()
-        this.products.push(product)
+        const index= this.products.findIndex((p) => p.id === product.id)
+
+        if (index !== -1) {
+          this.products.splice(index, 1, product)
+        } else {
+          product.id = uuid.v4()
+          this.products.push(product)
+        }
+
         this.resetProductInForm()
       },
       resetProductInForm(){
         this.productInForm = initialData().productInForm
+      },
+      onEditClicked (product) {
+        this.productInForm={...product}
       }
     }
   }

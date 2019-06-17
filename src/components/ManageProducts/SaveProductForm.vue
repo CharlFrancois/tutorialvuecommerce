@@ -12,7 +12,8 @@
       <label for="price">Price</label>
       <input type="number" v-model="product.price" class="form-control" id="price" placeholder="Enter Price" number>
     </div>
-    <button type="submit" v-on:click.prevent="onsubmit" class="btn btn-primary">Save product</button>
+    <button type="submit" v-on:click.prevent="onsubmit" class="btn btn-primary" >Add product</button>
+    <button type="reset" class="btn btn-secondary">Cancel</button>
   </form>
 </template>
 
