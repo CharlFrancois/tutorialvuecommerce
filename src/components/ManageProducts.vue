@@ -55,11 +55,8 @@
     data: initialData,
     methods:{
       onFormSave (product) {
-        // Generate an id using the third-party lib 'uuid'
         product.id = uuid.v4()
-        //add it to the product list
         this.products.push(product)
-        // reset the form
         this.resetProductInForm()
       },
       resetProductInForm(){

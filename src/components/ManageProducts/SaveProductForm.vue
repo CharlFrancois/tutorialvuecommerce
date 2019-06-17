@@ -19,7 +19,19 @@
 <script>
   export default {
     name: "SaveProductForm",
-    props:['product'],
+    props: {
+      product: {
+        type: Object,
+        default: () => {
+          return {
+            id: null,
+            name: '',
+            description: '',
+            price: null
+          }
+        }
+      },
+    },
     methods:{
       onsubmit(){
         this.$emit('submit', this.product)
