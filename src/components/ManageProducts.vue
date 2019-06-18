@@ -1,11 +1,13 @@
 <template>
   <section>
     <save-product-form
-      :product="productInForm"
-      v-on:submit="onFormSave"></save-product-form>
+            :product="productInForm"
+            v-on:submit="onFormSave"
+            v-on:cancel="onFormCancel"
+    ></save-product-form>
     <product-list
-      :products="products"
-      v-on:edit="onEditClicked"
+            :products="products"
+            v-on:edit="onEditClicked"
     ></product-list>
   </section>
 </template>
@@ -67,7 +69,12 @@
 
         this.resetProductInForm()
       },
-      resetProductInForm(){
+
+      onFormCancel () {
+        this.resetProductInForm()
+      },
+
+      resetProductInForm () {
         this.productInForm = initialData().productInForm
       },
       onEditClicked (product) {
