@@ -14,6 +14,9 @@
       <td>{{product.price}}:-</td>
       <td><a href="#" v-on:click.prevent.stop="onRemove(product.id)">remove</a></td>
     </tr>
+    <tr>
+      <td v-if="!products.length">Aucun produit disponible.</td>
+    </tr>
     </tbody>
   </table>
 </template>
