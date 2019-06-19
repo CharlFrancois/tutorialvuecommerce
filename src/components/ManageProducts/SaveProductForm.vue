@@ -46,37 +46,30 @@
         }
       },
     },
-
     data () {
       return {
         formErrors: initialFormErrors()
       }
     },
-
     watch: {
       'product.id' (newValue, oldValue) {
         this.formErrors = initialFormErrors()
       }
     },
-
     methods:{
       onSubmit () {
         if (this.validateForm()) this.$emit('submit', this.product)
       },
-
       onCancel () {
         this.$emit('cancel')
       },
-
       validateForm () {
         let nameOK = this.product.name !== '' && typeof this.product.name === 'string'
         let descriptionOK = this.product.description ? typeof this.product.description === 'string' : true
         let priceOK = this.product.price !== null && this.product.price > 0 && typeof this.product.price === 'string'
-
         if (!nameOK) this.formErrors.name = 'Error in name field'
         if (!descriptionOK) this.formErrors.description = 'Error in description field'
         if (!priceOK) this.formErrors.price = 'Error in price field'
-
         return nameOK && descriptionOK && priceOK
       }
     }
@@ -84,5 +77,4 @@
 </script>
 
 <style scoped>
-
 </style>
