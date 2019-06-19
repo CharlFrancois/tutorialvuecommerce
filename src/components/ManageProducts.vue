@@ -8,6 +8,7 @@
     <product-list
             :products="products"
             v-on:edit="onEditClicked"
+            v-on:remove="onRemoveClicked"
     ></product-list>
   </section>
 </template>
@@ -16,7 +17,6 @@
   import ProductList from '@/components/ManageProducts/ProductList'
   import SaveProductForm from '@/components/ManageProducts/SaveProductForm'
   import uuid from 'uuid'
-
   const initialData = () => {
     return{
       productInForm:{
@@ -59,31 +59,35 @@
     methods:{
       onFormSave (product) {
         const index= this.products.findIndex((p) => p.id === product.id)
-
         if (index !== -1) {
           this.products.splice(index, 1, product)
         } else {
           product.id = uuid.v4()
           this.products.push(product)
         }
-
         this.resetProductInForm()
       },
-
       onFormCancel () {
         this.resetProductInForm()
       },
-
       resetProductInForm () {
         this.productInForm = initialData().productInForm
       },
       onEditClicked (product) {
         this.productInForm={...product}
+      },
+      onRemoveClicked (productId) {
+        const index= this.products.findIndex((p) => p.id === productId)
+
+        this.products.splice(index, 1)
+
+        if (productId === this.productInForm.id) {
+          this.resetProductInForm()
+        }
       }
     }
   }
 </script>
 
 <style scoped>
-
 </style>

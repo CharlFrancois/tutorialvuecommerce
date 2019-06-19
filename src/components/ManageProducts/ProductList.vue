@@ -12,6 +12,10 @@
       <td>{{product.name}}</td>
       <td>{{product.description}}</td>
       <td>{{product.price}}:-</td>
+      <td><a href="#" v-on:click.prevent.stop="onRemove(product.id)">remove</a></td>
+    </tr>
+    <tr>
+      <td v-if="products.length === 0">Aucun produit disponible.</td>
     </tr>
     </tbody>
   </table>
@@ -23,11 +27,13 @@
     methods: {
       onEdit(product) {
         this.$emit('edit', product)
+      },
+      onRemove(productId) {
+        this.$emit('remove', productId)
       }
-    },
+    }
   }
 </script>
 
 <style scoped>
-
 </style>
