@@ -17,7 +17,7 @@
   import {mapGetters, mapActions} from 'vuex'
   import ProductList from '@/components/ManageProducts/ProductList'
   import SaveProductForm from '@/components/ManageProducts/SaveProductForm'
-  import uuid from 'uuid'
+
   const initialData = () => {
     return{
       productInForm:{
