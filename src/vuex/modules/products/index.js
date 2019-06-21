@@ -1,11 +1,11 @@
-import * as getters from './getters'
-import * as actions from './actions'
+import * as getters from '@/vuex/modules/products/getters'
+import * as actions from '@/vuex/modules/products/actions'
 
 import {
   CREATE_PRODUCT,
   UPDATE_PRODUCT,
   DELETE_PRODUCT
-} from "./mutation-types"
+} from "@/vuex/modules/products/mutation-types"
 
 const initialState = {
   all: [
